@@ -1,0 +1,27 @@
+{
+  "name": "react-auth-simple",
+  "version": "1.0.0",
+  "description": "React authentication Component with React Hooks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sophister/react-auth-simple.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sophister/react-auth-simple/issues"
+  },
+  "homepage": "https://github.com/sophister/react-auth-simple#readme",
+  "peerDependencies": {
+    "react": "^16.10.2"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.5",
+    "typescript": "^3.6.4"
+  }
+}
