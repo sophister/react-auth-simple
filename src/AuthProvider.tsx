@@ -16,9 +16,9 @@ interface AuthContextData<T = any> extends LoginState<T> {
     setUser: (user: T | null) => void;
 }
 
-const AuthContext = createContext<AuthContextData | null>(null);
+export const AuthContext = createContext<AuthContextData | null>(null);
 
-interface Props<T> {
+export interface Props<T> {
     children: React.ReactElement;
     // custom logic to get the current login user. 
     // Maybe read `localStorage`, or request API server

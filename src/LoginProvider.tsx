@@ -12,7 +12,7 @@ interface LoginProviderValue {
     hideLogin: () => void;
 }
 
-interface Props{
+export interface Props{
     children: React.ReactNode;
     // render custom Login Component
     renderLoginComponent: (shouldShow:boolean) => React.ReactNode;

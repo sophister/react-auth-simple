@@ -3,14 +3,30 @@
  */
 
 import React from 'react';
-import AuthProvider, { useAuthContext } from './AuthProvider';
-import LoginProvider, { useLoginContext } from './LoginProvider';
+import AuthProvider, { AuthContext, useAuthContext, Props as AuthProviderProps } from './AuthProvider';
+import LoginProvider, { LoginContext, useLoginContext, Props as LoginProviderProps } from './LoginProvider';
 import LoginGuard, { withLoginGuard } from './LoginGuard';
 
-interface Props {
+export type Props<UserType = any> = {
     children: React.ReactElement;
+} & Pick<AuthProviderProps<UserType>, 'initUser'> & Pick<LoginProviderProps, 'renderLoginComponent'>;
+
+export default function AuthRoot({ children, initUser, renderLoginComponent}: Props) {
+    return (
+        <AuthProvider initUser={initUser}>
+            <LoginProvider renderLoginComponent={renderLoginComponent}>
+                {children}
+            </LoginProvider>
+        </AuthProvider>
+    );
 }
 
-export default function AuthRoot(props: Props) {
-    
-}
+export {
+    AuthProvider,
+    AuthContext,
+    useAuthContext,
+    LoginProvider,
+    useLoginContext,
+    LoginGuard,
+    withLoginGuard,
+};
