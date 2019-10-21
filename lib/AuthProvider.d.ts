@@ -15,5 +15,5 @@ export interface Props<T> {
     initUser: () => Promise<T | null>;
 }
 export default function AuthProvider<T>(props: Props<T>): JSX.Element;
-export declare function useAuthContext(): AuthContextData<any>;
+export declare function useAuthContext<T = any>(): AuthContextData<T>;
 export {};

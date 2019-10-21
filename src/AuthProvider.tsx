@@ -66,8 +66,8 @@ export default function AuthProvider<T>(props: Props<T>) {
     );
 }
 
-export function useAuthContext(){
-    const data = useContext(AuthContext);
+export function useAuthContext<T = any>(){
+    const data = useContext<AuthContextData<T> | null>(AuthContext);
     if (!data) {
         throw new Error('<AuthProvider> does NOT exist in anchor');
     }
