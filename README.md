@@ -19,10 +19,10 @@ In **SPA**, we usually use a client side router, such as [react-router](https://
 
 So, when users navigate between our pages, these two cases are common:
 
-* User is navigating to page B from page A, where A can be viewed without logging in, whereas B requires user `authentication`. In this case, we need to show our `LoginModal`, or redirect to the `LoginPage`
+* User is navigating to page B from page A, where A can be viewed without login in, whereas B requires user `authentication`. In this case, we need to show our `LoginModal`, or redirect to the `LoginPage`
 * After user has logged in, all the pages can share this global `authentication` state
 
-`react-auth-simple` encourages developer to use `LoginModal` to show the login page, other than a `LoginPage`.
+`react-auth-simple` encourages developer to use `LoginModal` to show the login page, rather than a `LoginPage`.
 
 ## Demo Code
 
@@ -35,14 +35,14 @@ interface User {
     name: string;
 }
 
-// Home page can be visited without logging in
+// Home page can be visited without login
 function Home() {
     return (
         <div>Home page</div>
     );
 }
 
-// AccountCenter requires user logging in
+// AccountCenter requires user login
 function AccountCenter() {
     const authManager = useAuthContext<User>();
     return (
@@ -52,8 +52,8 @@ function AccountCenter() {
         </div>
     );
 }
-// Usually checking current use logging state is an async operation
-// So we should render some temporary view when we don't get logging state yet
+// Usually checking current user login state is an async operation
+// So we should render some temporary view when we don't get login state yet
 function renderLoginChecking() {
     return (
         <span>Loading...</span>
@@ -62,7 +62,7 @@ function renderLoginChecking() {
 // use HOC to protect our AccountCenter
 const AccountCenterWithGuard = withLoginGuard(AccountCenter, { renderLoginChecking });
 
-// LoginModal is where user input username and password, set global user after logging success
+// LoginModal is where user input username and password, set global user after login success
 function LoginModal() {
     const authManager = useAuthContext();
     const loginManager = useLoginContext();
@@ -98,7 +98,7 @@ function renderLoginModal(visible: boolean) {
     return ( <LoginModal /> );
 }
 
-// initUser is called to check use logging state when page load
+// initUser is called to check use login state when page load
 // You may call an API, or read localStorage
 function initUser() {
     return new Promise<User | null>(function(resolve, reject) {
